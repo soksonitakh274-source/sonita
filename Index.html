@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="km" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SORYA STORE - ហាងលក់ទំនិញអនឡាញឈានមុខគេ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Kantumruy Pro & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kantumruy+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        khmerred: '#d97706',
+                        khmergold: '#f59e0b',
+                    },
+                    fontFamily: {
+                        sans: ['Kantumruy Pro', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Kantumruy Pro', 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+        }
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0284c7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-sky-700 via-blue-600 to-indigo-700 text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-inner">
+        <span class="inline-block bg-amber-400 text-slate-900 text-xs px-2 py-0.5 rounded-full font-bold mr-2">ការបញ្ចុះតម្លៃពិសេស</span>
+        ដឹកជញ្ជូនឥតគិតថ្លៃសម្រាប់រាល់ការបញ្ជាទិញចាប់ពី $50 ឡើងទៅក្នុងរាជធានីភ្នំពេញ!
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-40 glass-header border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white text-xl font-black shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold bg-gradient-to-r from-sky-700 to-indigo-700 bg-clip-text text-transparent">សូរិយា</span>
+                        <span class="text-xs block text-slate-500 font-semibold tracking-wider uppercase -mt-1">Sorya Store</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
+                    <a href="#home" class="nav-link px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition">
+                        <i class="fa-solid fa-house text-sky-500 mr-2"></i>ទំព័រដើម
+                    </a>
+                    <a href="#categories" class="nav-link px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition">
+                        <i class="fa-solid fa-grid-2 text-sky-500 mr-2"></i>ប្រភេទផលិតផល
+                    </a>
+                    <a href="#shipping" class="nav-link px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition">
+                        <i class="fa-solid fa-truck-fast text-sky-500 mr-2"></i>ប្រតិបត្តិការបញ្ជូនទំនិញ
+                    </a>
+                    <a href="#contact" class="nav-link px-4 py-2.5 rounded-xl font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition">
+                        <i class="fa-solid fa-headset text-sky-500 mr-2"></i>ទំនាក់ទំនង
+                    </a>
+                </nav>
+
+                <!-- Search & Cart Actions -->
+                <div class="flex items-center gap-3">
+                    <!-- Search trigger -->
+                    <button onclick="toggleSearchModal()" class="p-2.5 text-slate-600 hover:text-sky-600 hover:bg-slate-100 rounded-xl transition" title="ស្វែងរក">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+
+                    <!-- Cart Drawer Button -->
+                    <button onclick="openCartDrawer()" class="relative p-2.5 bg-sky-50 hover:bg-sky-100 text-sky-700 rounded-xl transition flex items-center gap-2 font-medium">
+                        <i class="fa-solid fa-cart-shopping text-lg"></i>
+                        <span class="hidden sm:inline">កន្ត្រក</span>
+                        <span id="cartBadge" class="w-5 h-5 bg-amber-500 text-white text-xs font-bold rounded-full flex items-center justify-center -ml-1">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 text-slate-700 hover:bg-slate-100 rounded-xl transition">
+                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg">
+            <a href="#home" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-600">
+                <i class="fa-solid fa-house text-sky-500 w-6"></i> ទំព័រដើម
+            </a>
+            <a href="#categories" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-600">
+                <i class="fa-solid fa-list-ul text-sky-500 w-6"></i> ប្រភេទផលិតផល
+            </a>
+            <a href="#shipping" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-600">
+                <i class="fa-solid fa-truck-fast text-sky-500 w-6"></i> ប្រតិបត្តិការបញ្ជូនទំនិញ
+            </a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-600">
+                <i class="fa-solid fa-headset text-sky-500 w-6"></i> ទំនាក់ទំនង
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow">
+        
+        <!-- SECTION 1: HOME / HERO SECTION -->
+        <section id="home" class="relative overflow-hidden py-12 lg:py-20 bg-gradient-to-b from-sky-50/60 via-slate-50 to-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 bg-amber-100/80 border border-amber-300 text-amber-900 px-4 py-1.5 rounded-full text-sm font-semibold shadow-xs">
+                            <i class="fa-solid fa-star text-amber-500"></i>
+                            <span>ហាងអនឡាញដែលមានទំនុកចិត្តខ្ពស់បំផុត</span>
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                            ទិញទំនិញគុណភាពខ្ពស់ <br class="hidden sm:inline">
+                            <span class="bg-gradient-to-r from-sky-600 via-indigo-600 to-amber-500 bg-clip-text text-transparent">តម្លៃសមរម្យ & ដឹកជញ្ជូនរហ័ស</span>
+                        </h1>
+                        <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            ស្វែងរកផលិតផលអេឡិចត្រូនិក សម្លៀកបំពាក់ ឧបករណ៍ប្រើប្រាស់ទំនើបៗ និងកាដូពិសេសៗជាច្រើនទៀត ជាមួយនឹងការធានាគុណភាព ១០០% និងសេវាកម្មដឹកជញ្ជូនដល់ផ្ទះ ២៤ ខេត្ត/ក្រុង។
+                        </p>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#categories" class="w-full sm:w-auto px-8 py-4 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-2xl shadow-lg shadow-sky-600/30 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                                <span>ទិញឥឡូវនេះ</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="#shipping" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-100 text-slate-800 font-bold rounded-2xl border border-slate-300 shadow-sm transition flex items-center justify-center gap-3">
+                                <i class="fa-solid fa-location-dot text-sky-600"></i>
+                                <span>តាមដានការដឹកជញ្ជូន</span>
+                            </a>
+                        </div>
+
+                        <!-- Highlights Stats -->
+                        <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-200 max-w-lg mx-auto lg:mx-0">
+                            <div>
+                                <h4 class="text-2xl font-bold text-slate-900">10K+</h4>
+                                <p class="text-xs text-slate-500 font-medium">អតិថិជនពេញចិត្ត</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-slate-900">100%</h4>
+                                <p class="text-xs text-slate-500 font-medium">ផលិតផលសុទ្ធ</p>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-slate-900">24/7</h4>
+                                <p class="text-xs text-slate-500 font-medium">សេវាបំរើអតិថិជន</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Featured Banner/Card -->
+                    <div class="lg:col-span-5">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <div class="absolute -top-4 -left-4 w-72 h-72 bg-sky-300/30 rounded-full blur-3xl -z-10"></div>
+                            <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-indigo-300/30 rounded-full blur-3xl -z-10"></div>
+                            
+                            <div class="bg-white p-6 rounded-3xl shadow-xl border border-slate-100 relative">
+                                <span class="absolute top-8 right-8 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                    បញ្ចុះតម្លៃ -30%
+                                </span>
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80" alt="Featured Product" class="w-full h-64 object-cover rounded-2xl mb-6 shadow-sm">
+                                <div class="space-y-3">
+                                    <div class="text-xs font-semibold text-sky-600 uppercase tracking-wide">ផលិតផលពេញនិយមប្រចាំខែ</div>
+                                    <h3 class="text-xl font-bold text-slate-800">កាសឥតខ្សែ Smart Wireless Headphones Pro</h3>
+                                    <div class="flex items-center gap-2">
+                                        <div class="flex text-amber-400 text-sm">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-xs text-slate-500 font-medium">(128 ការវាយតម្លៃ)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between pt-2">
+                                        <div>
+                                            <span class="text-2xl font-black text-sky-700">$49.00</span>
+                                            <span class="text-sm text-slate-400 line-through ml-2">$70.00</span>
+                                        </div>
+                                        <button onclick="addToCart(1)" class="px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white font-medium rounded-xl shadow-md transition flex items-center gap-2">
+                                            <i class="fa-solid fa-cart-plus"></i>
+                                            <span>ដាក់កន្ត្រក</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: CATEGORIES & PRODUCT CATALOG -->
+        <section id="categories" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-sky-600 font-bold text-sm tracking-wider uppercase">កាតាឡុកទំនិញ</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">ជ្រើសរើសតាមប្រភេទផលិតផល</h2>
+                    <p class="text-slate-500 mt-3 text-base">ស្វែងរកផលិតផលដែលអ្នកត្រូវការបានយ៉ាងងាយស្រួល ជាមួយជម្រើសចម្រុះ និងតម្រងស្វែងរក</p>
+                </div>
+
+                <!-- Category Selector / Filter Tabs -->
+                <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 mb-10">
+                    <div class="flex items-center justify-between flex-wrap gap-4">
+                        
+                        <!-- Pills -->
+                        <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 w-full md:w-auto" id="categoryFilterContainer">
+                            <button onclick="filterCategory('all')" class="cat-btn active px-5 py-2.5 rounded-xl font-medium text-sm transition whitespace-nowrap bg-sky-600 text-white shadow-sm" data-cat="all">
+                                <i class="fa-solid fa-border-all mr-1.5"></i>ទាំងអស់
+                            </button>
+                            <button onclick="filterCategory('electronics')" class="cat-btn px-5 py-2.5 rounded-xl font-medium text-sm transition whitespace-nowrap bg-white text-slate-700 hover:bg-sky-50 hover:text-sky-600 border border-slate-200" data-cat="electronics">
+                                <i class="fa-solid fa-laptop mr-1.5"></i>គ្រឿងអេឡិចត្រូនិក
+                            </button>
+                            <button onclick="filterCategory('fashion')" class="cat-btn px-5 py-2.5 rounded-xl font-medium text-sm transition whitespace-nowrap bg-white text-slate-700 hover:bg-sky-50 hover:text-sky-600 border border-slate-200" data-cat="fashion">
+                                <i class="fa-solid fa-shirt mr-1.5"></i>សម្លៀកបំពាក់
+                            </button>
+                            <button onclick="filterCategory('home')" class="cat-btn px-5 py-2.5 rounded-xl font-medium text-sm transition whitespace-nowrap bg-white text-slate-700 hover:bg-sky-50 hover:text-sky-600 border border-slate-200" data-cat="home">
+                                <i class="fa-solid fa-couch mr-1.5"></i>របស់ប្រើប្រាស់ក្នុងផ្ទះ
+                            </button>
+                            <button onclick="filterCategory('beauty')" class="cat-btn px-5 py-2.5 rounded-xl font-medium text-sm transition whitespace-nowrap bg-white text-slate-700 hover:bg-sky-50 hover:text-sky-600 border border-slate-200" data-cat="beauty">
+                                <i class="fa-solid fa-pump-soap mr-1.5"></i>ថែរក្សាសម្រស់
+                            </button>
+                        </div>
+
+                        <!-- Dropdown Select & Sort -->
+                        <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+                            <label class="text-xs text-slate-500 font-semibold uppercase hidden sm:inline">តម្រៀប:</label>
+                            <select id="sortSelect" onchange="sortProducts()" class="bg-white border border-slate-300 text-slate-700 text-sm rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-sky-500 focus:outline-none w-full sm:w-auto">
+                                <option value="default">ទូទៅ (Default)</option>
+                                <option value="low">តម្លៃ៖ ទាប ទៅ ខ្ពស់</option>
+                                <option value="high">តម្លៃ៖ ខ្ពស់ ទៅ ទាប</option>
+                                <option value="popular">ពេញនិយមបំផុត</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Products will be dynamically populated via JavaScript -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: SHIPPING & LOGISTICS OPERATIONS -->
+        <section id="shipping" class="py-16 bg-slate-900 text-white relative overflow-hidden">
+            <!-- Background Accent elements -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-sky-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="bg-sky-500/20 text-sky-300 font-bold text-xs uppercase px-3 py-1 rounded-full border border-sky-400/30">សេវាដឹកជញ្ជូនរហ័ស</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">ប្រតិបត្តិការបញ្ជូនទំនិញ & តាមដាន</h2>
+                    <p class="text-slate-400 mt-2 text-base">ស្វែងយល់ពីតម្លៃសេវាដឹកជញ្ជូន និងផ្ទៀងផ្ទាត់ស្ថានភាពកញ្ចប់ទំនិញរបស់អ្នកភ្លាមៗ</p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Order Tracking Tool Box -->
+                    <div class="lg:col-span-7 bg-slate-800/80 border border-slate-700/80 rounded-3xl p-6 sm:p-8 backdrop-blur-md shadow-2xl">
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3">
+                            <i class="fa-solid fa-magnifying-glass-location text-amber-400"></i>
+                            <span>តាមដានកញ្ចប់ទំនិញរបស់អ្នក</span>
+                        </h3>
+                        <p class="text-slate-400 text-sm mb-6">បញ្ចូលលេខកូដតាមដានទំនិញ (Tracking Code) ដើម្បីពិនិត្យមើលទីតាំងបច្ចុប្បន្ន (ឧទាហរណ៍៖ <code class="text-amber-300 font-mono">KH-88992</code>)</p>
+                        
+                        <form onsubmit="trackOrder(event)" class="flex flex-col sm:flex-row gap-3 mb-8">
+                            <input type="text" id="trackingInput" placeholder="បញ្ចូលលេខកូដទំនិញ (ឧ. KH-88992)" required 
+                                   class="flex-grow bg-slate-900 border border-slate-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-sky-500 font-mono text-sm placeholder:font-sans placeholder:text-slate-500">
+                            <button type="submit" class="bg-sky-600 hover:bg-sky-500 text-white font-bold px-6 py-3 rounded-xl transition flex items-center justify-center gap-2 whitespace-nowrap shadow-lg">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>ពិនិត្យមើល</span>
+                            </button>
+                        </form>
+
+                        <!-- Tracking Result Progress Box (Dynamic) -->
+                        <div id="trackingResult" class="bg-slate-900/90 rounded-2xl p-6 border border-slate-700/60 hidden">
+                            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4 mb-6">
+                                <div>
+                                    <span class="text-xs text-slate-400 block">លេខកូដបញ្ជាទិញ:</span>
+                                    <span id="resTrackingCode" class="font-mono text-amber-400 font-bold">KH-88992</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">កាលបរិច្ឆេទរំពឹងទុក:</span>
+                                    <span class="text-emerald-400 font-medium text-sm">ថ្ងៃស្អែក ម៉ោង 3:00 ល្ងាច</span>
+                                </div>
+                            </div>
+
+                            <!-- Progress Timeline Steps -->
+                            <div class="space-y-6 relative before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-700">
+                                
+                                <div class="flex items-start gap-4 relative">
+                                    <div class="w-8 h-8 rounded-full bg-emerald-500 text-slate-900 flex items-center justify-center font-bold text-xs z-10 shadow-md">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-bold text-white">បានទទួលការបញ្ជាទិញ (Order Placed)</h5>
+                                        <p class="text-xs text-slate-400">ថ្ងៃនេះ, ម៉ោង 09:30 ព្រឹក - ប្រព័ន្ធបានទទួលការកុម្ម៉ង់ដោយជោគជ័យ</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4 relative">
+                                    <div class="w-8 h-8 rounded-full bg-emerald-500 text-slate-900 flex items-center justify-center font-bold text-xs z-10 shadow-md">
+                                        <i class="fa-solid fa-box"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-bold text-white">កំពុងរៀបចំកញ្ចប់ទំនិញ (Packed)</h5>
+                                        <p class="text-xs text-slate-400">ថ្ងៃនេះ, ម៉ោង 11:15 ព្រឹក - ឃ្លាំងទំនិញបានវេចខ្ចប់រួចរាល់</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4 relative">
+                                    <div class="w-8 h-8 rounded-full bg-sky-500 text-white flex items-center justify-center font-bold text-xs z-10 shadow-md ring-4 ring-sky-500/20 animate-pulse">
+                                        <i class="fa-solid fa-truck-fast"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-bold text-sky-400">កំពុងដឹកជញ្ជូនតាមផ្លូវ (In Transit)</h5>
+                                        <p class="text-xs text-slate-300">អ្នកដឹកជញ្ជូនកំពុងធ្វើដំណើរទៅកាន់អាសយដ្ឋានរបស់អ្នក</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4 relative opacity-50">
+                                    <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-600 text-slate-400 flex items-center justify-center font-bold text-xs z-10">
+                                        <i class="fa-solid fa-house-chimney"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-bold text-slate-300">ប្រគល់ជូនដល់ដៃ (Delivered)</h5>
+                                        <p class="text-xs text-slate-500">រំពឹងទុកប្រគល់ជូននៅចុងថ្ងៃ</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Delivery Rates & Partners -->
+                    <div class="lg:col-span-5 space-y-6">
+                        
+                        <!-- Shipping Rate Table Card -->
+                        <div class="bg-slate-800/80 border border-slate-700/80 rounded-3xl p-6 backdrop-blur-md">
+                            <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-calculator text-sky-400"></i>
+                                <span>តារាងតម្លៃសេវាដឹកជញ្ជូន</span>
+                            </h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center">
+                                            <i class="fa-solid fa-city text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-sm text-white">ក្នុងរាជធានីភ្នំពេញ</div>
+                                            <div class="text-xs text-slate-400">រយៈពេល 1 - 2 ថ្ងៃ</div>
+                                        </div>
+                                    </div>
+                                    <span class="font-bold text-emerald-400">$1.50</span>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                                            <i class="fa-solid fa-map-location-dot text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-sm text-white">បណ្តា ២៤ ខេត្ត</div>
+                                            <div class="text-xs text-slate-400">រយៈពេល 2 - 3 ថ្ងៃ</div>
+                                        </div>
+                                    </div>
+                                    <span class="font-bold text-emerald-400">$2.50</span>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                                            <i class="fa-solid fa-bolt text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-sm text-white">សេវាទាន់ចិត្ត (Express)</div>
+                                            <div class="text-xs text-slate-400">ទទួលបានក្នុងថ្ងៃតែមួយ (ភ្នំពេញ)</div>
+                                        </div>
+                                    </div>
+                                    <span class="font-bold text-amber-400">$3.50</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Logistics Partners -->
+                        <div class="bg-slate-800/80 border border-slate-700/80 rounded-3xl p-6 backdrop-blur-md">
+                            <h4 class="text-sm font-bold text-slate-300 mb-3 uppercase tracking-wider">ដៃគូដឹកជញ្ជូនផ្លូវការ</h4>
+                            <div class="grid grid-cols-3 gap-2 text-center">
+                                <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800 text-xs text-slate-300 font-semibold">
+                                    J&T Express
+                                </div>
+                                <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800 text-xs text-slate-300 font-semibold">
+                                    Virak Buntham
+                                </div>
+                                <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800 text-xs text-slate-300 font-semibold">
+                                    Capitol Express
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: CONTACT US SECTION -->
+        <section id="contact" class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-sky-600 font-bold text-sm tracking-wider uppercase">សាកសួរព័ត៌មាន</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">ទំនាក់ទំនងមកកាន់យើងខ្ញុំ</h2>
+                    <p class="text-slate-500 mt-2 text-base">ក្រុមការងារយើងខ្ញុំរង់ចាំជួយសម្រួល និងឆ្លើយតបរាល់ចម្ងល់របស់អ្នក ២៤/៧</p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-10">
+                    
+                    <!-- Contact Cards & Info -->
+                    <div class="lg:col-span-5 space-y-4">
+                        
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">លេខទូរស័ព្ទទំនាក់ទំនង</h4>
+                                <p class="text-slate-500 text-sm mt-1">+855 12 345 678 / +855 98 765 432</p>
+                                <p class="text-xs text-slate-400 mt-1">រៀងរាល់ថ្ងៃ ម៉ោង 8:00 ព្រឹក - 8:00 យប់</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-paper-plane fill-current text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Telegram ផ្លូវការ</h4>
+                                <p class="text-slate-500 text-sm mt-1">@SoryaStoreOfficial</p>
+                                <a href="https://t.me" target="_blank" class="inline-block text-xs font-bold text-sky-600 hover:underline mt-1">ផ្ញើសារតាម Telegram &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">អាសយដ្ឋានហាង</h4>
+                                <p class="text-slate-500 text-sm mt-1">ផ្ទះលេខ ១២៣, ផ្លូវព្រះនរោត្តម, សង្កាត់វត្តភ្នំ, ខណ្ឌដូនពេញ, រាជធានីភ្នំពេញ</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="bg-gradient-to-r from-sky-600 to-indigo-600 p-6 rounded-2xl text-white shadow-md">
+                            <h4 class="font-bold text-base mb-2">តាមដានយើងនៅលើបណ្តាញសង្គម</h4>
+                            <p class="text-xs text-sky-100 mb-4">ទទួលបានព័ត៌មានពីការបញ្ចុះតម្លៃ និងផលិតផលថ្មីៗមុនគេ</p>
+                            <div class="flex gap-3">
+                                <a href="#" class="w-10 h-10 rounded-xl bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-xl bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-xl bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-xl bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-200/80 shadow-md">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">ផ្ញើសារមកកាន់យើង</h3>
+                        
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-2">ឈ្មោះពេញ *</label>
+                                    <input type="text" required placeholder="ឧ. សុខ ជា" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-2">លេខទូរស័ព្ទ *</label>
+                                    <input type="tel" required placeholder="ឧ. 012 345 678" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-2">អ៊ីមែល (បើមាន)</label>
+                                <input type="email" placeholder="example@domain.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-2">ប្រធានបទ</label>
+                                <select class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                                    <option>សាកសួរព័ត៌មានផលិតផល</option>
+                                    <option>បញ្ហាក្នុងការកុម្ម៉ង់/ទូទាត់ប្រាក់</option>
+                                    <option>តាមដានការដឹកជញ្ជូន</option>
+                                    <option>ផ្សេងៗ</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-2">សាររបស់អ្នក *</label>
+                                <textarea rows="4" required placeholder="សរសេរការសាកសួររបស់អ្នកនៅទីនេះ..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-sky-600/20 text-base">
+                                <i class="fa-solid fa-paper-plane mr-2"></i> ផ្ញើសារឥឡូវនេះ
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-sm border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-sky-600 flex items-center justify-center text-white text-lg font-bold">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-white">សូរិយា Store</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed pr-4">
+                        យើងខ្ញុំជាហាងលក់ទំនិញអនឡាញឈានមុខគេ ដែលផ្តល់ជូននូវផលិតផលមានគុណភាពខ្ពស់ តម្លៃសមរម្យ និងសេវាកម្មដឹកជញ្ជូនលឿនរហ័សទូទាំងប្រទេសកម្ពុជា។
+                    </p>
+                    <div class="flex items-center gap-2 pt-2">
+                        <span class="text-xs text-slate-500">វិធីសាស្ត្រទូទាត់ប្រាក់៖</span>
+                        <span class="bg-slate-800 text-amber-400 text-xs px-2.5 py-1 rounded font-bold">KHQR / ABA</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded font-bold">Wing</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded font-bold">Acleda</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold text-base mb-4">តំណភ្ជាប់រហ័ស</h5>
+                    <ul class="space-y-2.5 text-xs sm:text-sm">
+                        <li><a href="#home" class="hover:text-white transition">ទំព័រដើម</a></li>
+                        <li><a href="#categories" class="hover:text-white transition">ប្រភេទផលិតផល</a></li>
+                        <li><a href="#shipping" class="hover:text-white transition">ប្រតិបត្តិការបញ្ជូនទំនិញ</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">ទំនាក់ទំនង</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold text-base mb-4">សេវាកម្មអតិថិជន</h5>
+                    <ul class="space-y-2.5 text-xs sm:text-sm">
+                        <li><a href="#" class="hover:text-white transition">លក្ខខណ្ឌនៃការប្រើប្រាស់</a></li>
+                        <li><a href="#" class="hover:text-white transition">គោលការណ៍ឯកជនភាព</a></li>
+                        <li><a href="#" class="hover:text-white transition">ការផ្លាស់ប្តូរ និងសងប្រាក់វិញ</a></li>
+                        <li><a href="#" class="hover:text-white transition">សំណួរញឹកញាប់ (FAQ)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold text-base mb-4">ព្រឹត្តិបត្រព័ត៌មាន</h5>
+                    <p class="text-xs text-slate-400 mb-3">ចុះឈ្មោះដើម្បីទទួលបានការបញ្ចុះតម្លៃពិសេស</p>
+                    <div class="space-y-2">
+                        <input type="email" placeholder="អ៊ីមែលរបស់អ្នក" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-sky-500">
+                        <button onclick="showToast('សូមអរគុណសម្រាប់ការចុះឈ្មោះ!')" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-2 rounded-xl text-xs transition">ចុះឈ្មោះ</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 mt-12 pt-6 text-center text-xs text-slate-500">
+                &copy; 2026 SORYA STORE. រក្សាសិទ្ធិគ្រប់យ៉ាង។ រចនាឡើងយ៉ាងសម្រិតសម្រាំងសម្រាប់ទីផ្សារកម្ពុជា។
+            </div>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART DRAWER -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div onclick="closeCartDrawer()" class="absolute inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"></div>
+        
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                
+                <!-- Drawer Header -->
+                <div class="p-6 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-sky-600 text-xl"></i>
+                        <h3 class="text-lg font-bold text-slate-900">កន្ត្រកទំនិញរបស់អ្នក</h3>
+                    </div>
+                    <button onclick="closeCartDrawer()" class="text-slate-400 hover:text-slate-600 p-2 rounded-lg">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div id="cartItemsList" class="flex-grow overflow-y-auto p-6 space-y-4">
+                    <!-- Dynamic Cart Items Rendered Here -->
+                </div>
+
+                <!-- Drawer Footer & Summary -->
+                <div class="p-6 border-t border-slate-200 bg-slate-50 space-y-4">
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between text-slate-600">
+                            <span>តម្លៃសរុបផលិតផល:</span>
+                            <span id="cartSubtotal" class="font-semibold text-slate-800">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>ថ្លៃដឹកជញ្ជូន:</span>
+                            <span id="cartShippingFee" class="font-semibold text-slate-800">$1.50</span>
+                        </div>
+                        <div class="flex justify-between text-base font-bold text-slate-900 pt-2 border-t border-slate-200">
+                            <span>សរុបចុងក្រោយ:</span>
+                            <span id="cartGrandTotal" class="text-sky-600">$0.00</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openCheckoutModal()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-sky-600/20 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <span>បន្តទៅការទូទាត់ប្រាក់</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT & KHQR MODAL -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCheckoutModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">បង់ប្រាក់តាម KHQR</h3>
+            <p class="text-xs text-slate-500 mb-6">ស្កែន QR Code ដើម្បីទូទាត់ប្រាក់តាមប្រព័ន្ធធនាគារ ABA ឬ អេបធនាគារនានា</p>
+
+            <!-- QR Code Card Box -->
+            <div class="bg-red-700 text-white p-6 rounded-3xl text-center space-y-4 shadow-xl">
+                <div class="font-extrabold text-lg tracking-wider uppercase">KHQR Scan to Pay</div>
+                <div class="bg-white p-4 rounded-2xl inline-block shadow-inner">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=SORYASTORE_PAYMENT_MOCKUP" alt="KHQR Code" class="w-44 h-44 mx-auto">
+                </div>
+                <div>
+                    <div class="text-xs opacity-80">ចំនួនទឹកប្រាក់ត្រូវទូទាត់</div>
+                    <div id="qrPayAmount" class="text-3xl font-black text-amber-300 mt-1">$0.00</div>
+                </div>
+            </div>
+
+            <div class="mt-6 space-y-3">
+                <button onclick="completeOrder()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition shadow-md">
+                    <i class="fa-solid fa-circle-check mr-2"></i> ខ្ញុំបានទូទាត់ប្រាក់រួចរាល់
+                </button>
+                <button onclick="closeCheckoutModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 rounded-xl transition text-sm">
+                    បោះបង់
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEARCH MODAL -->
+    <div id="searchModal" class="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-slate-900/60 backdrop-blur-xs hidden">
+        <div class="bg-white rounded-2xl max-w-xl w-full p-4 shadow-2xl">
+            <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                <i class="fa-solid fa-magnifying-glass text-slate-400 text-lg"></i>
+                <input type="text" id="searchInput" onkeyup="handleSearch(this.value)" placeholder="ស្វែងរកឈ្មោះផលិតផល..." class="w-full text-base focus:outline-none">
+                <button onclick="toggleSearchModal()" class="text-slate-400 hover:text-slate-600">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="searchResults" class="pt-3 max-h-60 overflow-y-auto space-y-2">
+                <p class="text-xs text-slate-400 text-center py-4">វាយបញ្ចូលឈ្មោះផលិតផលដើម្បីស្វែងរក...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toastMsg">សារដំណឹង</span>
+    </div>
+
+    <script>
+        // Sample Products Database
+        const productsData = [
+            {
+                id: 1,
+                name: "កាសឥតខ្សែ Smart Wireless Headphones Pro",
+                category: "electronics",
+                price: 49.00,
+                oldPrice: 70.00,
+                rating: 5,
+                sales: 128,
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80",
+                badge: "ពេញនិយម"
+            },
+            {
+                id: 2,
+                name: "នាឡិកាឆ្លាតវៃ Smart Watch Series 8",
+                category: "electronics",
+                price: 89.00,
+                oldPrice: 120.00,
+                rating: 4.8,
+                sales: 95,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
+                badge: "ថ្មី"
+            },
+            {
+                id: 3,
+                name: "អាវយឺតបុរស Premium Cotton T-Shirt",
+                category: "fashion",
+                price: 15.00,
+                oldPrice: 22.00,
+                rating: 4.5,
+                sales: 210,
+                image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
+                badge: null
+            },
+            {
+                id: 4,
+                name: "ស្បែកជើងកីឡា Sport Running Shoes",
+                category: "fashion",
+                price: 55.00,
+                oldPrice: 75.00,
+                rating: 4.9,
+                sales: 84,
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80",
+                badge: "ចុះថ្លៃ"
+            },
+            {
+                id: 5,
+                name: "ដបទឹកសម្លាប់មេរោគ Smart Water Bottle UV",
+                category: "home",
+                price: 28.00,
+                oldPrice: 35.00,
+                rating: 4.6,
+                sales: 62,
+                image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&auto=format&fit=crop&q=80",
+                badge: null
+            },
+            {
+                id: 6,
+                name: "ឈុតឡេថែរក្សាស្បែកមុខ Hydrating Serum Set",
+                category: "beauty",
+                price: 39.00,
+                oldPrice: 50.00,
+                rating: 5,
+                sales: 175,
+                image: "https://images.unsplash.com/photo-1608248597261-5421d55ab36a?w=600&auto=format&fit=crop&q=80",
+                badge: "ទិញច្រើន"
+            },
+            {
+                id: 7,
+                name: "អំពូលភ្លើងតុធ្វើការ LED Minimalist Lamp",
+                category: "home",
+                price: 24.00,
+                oldPrice: 32.00,
+                rating: 4.4,
+                sales: 43,
+                image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&auto=format&fit=crop&q=80",
+                badge: null
+            },
+            {
+                id: 8,
+                name: "កែវបំពងសំឡេង Bluetooth Portable Speaker",
+                category: "electronics",
+                price: 35.00,
+                oldPrice: 45.00,
+                rating: 4.7,
+                sales: 156,
+                image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80",
+                badge: "ពេញនិយម"
+            }
+        ];
+
+        // State variables
+        let cart = [];
+        let currentCategory = 'all';
+
+        // Render Products
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 font-medium">មិនមានផលិតផលក្នុងប្រភេទទិន្នន័យនេះទេ</div>`;
+                return;
+            }
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden flex flex-col justify-between';
+                
+                card.innerHTML = `
+                    <div class="relative">
+                        ${product.badge ? `<span class="absolute top-3 left-3 bg-sky-600 text-white text-xs font-bold px-2.5 py-1 rounded-full z-10">${product.badge}</span>` : ''}
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-52 object-cover">
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="text-xs text-sky-600 font-semibold uppercase">${getCategoryLabel(product.category)}</span>
+                            <h3 class="font-bold text-slate-800 text-base mt-1 line-clamp-2">${product.name}</h3>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 text-amber-400 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="font-bold text-slate-700">${product.rating}</span>
+                            <span class="text-slate-400">(${product.sales} ទិញ)</span>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+                            <div>
+                                <span class="text-xl font-black text-sky-700">$${product.price.toFixed(2)}</span>
+                                ${product.oldPrice ? `<span class="text-xs text-slate-400 line-through ml-1.5">$${product.oldPrice.toFixed(2)}</span>` : ''}
+                            </div>
+                            <button onclick="addToCart(${product.id})" class="p-2.5 bg-sky-50 hover:bg-sky-600 text-sky-600 hover:text-white rounded-xl transition">
+                                <i class="fa-solid fa-cart-plus text-base"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function getCategoryLabel(cat) {
+            switch(cat) {
+                case 'electronics': return 'គ្រឿងអេឡិចត្រូនិក';
+                case 'fashion': return 'សម្លៀកបំពាក់';
+                case 'home': return 'របស់ប្រើប្រាស់ក្នុងផ្ទះ';
+                case 'beauty': return 'ថែរក្សាសម្រស់';
+                default: return 'ទូទៅ';
+            }
+        }
+
+        // Category Filter Logic
+        function filterCategory(cat) {
+            currentCategory = cat;
+            
+            // Update UI Active Pills
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if(btn.dataset.cat === cat) {
+                    btn.className = "cat-btn active px-5 py-2.5 rounded-xl font-medium text-sm transition whitespace-nowrap bg-sky-600 text-white shadow-sm";
+                } else {
+                    btn.className = "cat-btn px-5 py-2.5 rounded-xl font-medium text-sm transition whitespace-nowrap bg-white text-slate-700 hover:bg-sky-50 hover:text-sky-600 border border-slate-200";
+                }
+            });
+
+            if(cat === 'all') {
+                renderProducts(productsData);
+            } else {
+                const filtered = productsData.filter(p => p.category === cat);
+                renderProducts(filtered);
+            }
+        }
+
+        // Sorting Logic
+        function sortProducts() {
+            const val = document.getElementById('sortSelect').value;
+            let items = [...productsData];
+            
+            if(currentCategory !== 'all') {
+                items = items.filter(p => p.category === currentCategory);
+            }
+
+            if(val === 'low') items.sort((a,b) => a.price - b.price);
+            if(val === 'high') items.sort((a,b) => b.price - a.price);
+            if(val === 'popular') items.sort((a,b) => b.sales - a.sales);
+
+            renderProducts(items);
+        }
+
+        /* Cart Operations */
+        function addToCart(id) {
+            const product = productsData.find(p => p.id === id);
+            const existItem = cart.find(item => item.id === id);
+
+            if(existItem) {
+                existItem.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast(`បានបន្ថែម "${product.name.substring(0, 18)}..." ទៅក្នុងកន្ត្រក!`);
+        }
+
+        function updateCartUI() {
+            // Count total Qty
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartBadge').innerText = totalQty;
+
+            // Render List inside Drawer
+            const list = document.getElementById('cartItemsList');
+            list.innerHTML = '';
+
+            if(cart.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3"></i>
+                        <p>មិនទាន់មានទំនិញក្នុងកន្ត្រកទេ</p>
+                    </div>
+                `;
+            } else {
+                cart.forEach(item => {
+                    const el = document.createElement('div');
+                    el.className = "flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80";
+                    el.innerHTML = `
+                        <img src="${item.image}" class="w-14 h-14 object-cover rounded-lg">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-xs text-slate-800 line-clamp-1">${item.name}</h4>
+                            <div class="text-sky-700 font-bold text-sm">$${item.price.toFixed(2)}</div>
+                            <div class="flex items-center gap-2 mt-1">
+                                <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 bg-white border rounded flex items-center justify-center text-xs text-slate-600">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 bg-white border rounded flex items-center justify-center text-xs text-slate-600">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-600 p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    `;
+                    list.appendChild(el);
+                });
+            }
+
+            // Calculations
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const shipping = subtotal > 50 || subtotal === 0 ? 0 : 1.50;
+            const grandTotal = subtotal + shipping;
+
+            document.getElementById('cartSubtotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cartShippingFee').innerText = shipping === 0 ? "ឥតគិតថ្លៃ" : `$${shipping.toFixed(2)}`;
+            document.getElementById('cartGrandTotal').innerText = `$${grandTotal.toFixed(2)}`;
+            document.getElementById('qrPayAmount').innerText = `$${grandTotal.toFixed(2)}`;
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if(item) {
+                item.qty += delta;
+                if(item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        /* Drawers & Modals Control */
+        function openCartDrawer() {
+            document.getElementById('cartDrawer').classList.remove('hidden');
+        }
+
+        function closeCartDrawer() {
+            document.getElementById('cartDrawer').classList.add('hidden');
+        }
+
+        function openCheckoutModal() {
+            if(cart.length === 0) {
+                showToast("សូមបន្ថែមទំនិញក្នុងកន្ត្រកជាមុនសិន!");
+                return;
+            }
+            closeCartDrawer();
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        function completeOrder() {
+            cart = [];
+            updateCartUI();
+            closeCheckoutModal();
+            showToast("ការបញ្ជាទិញបានជោគជ័យ! យើងខ្ញុំនឹងទាក់ទងទៅលោកអ្នកឆាប់ៗ");
+        }
+
+        /* Order Tracking Simulation */
+        function trackOrder(e) {
+            e.preventDefault();
+            const code = document.getElementById('trackingInput').value;
+            document.getElementById('resTrackingCode').innerText = code.toUpperCase();
+            document.getElementById('trackingResult').classList.remove('hidden');
+        }
+
+        /* Contact Form Submit */
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast("សាររបស់អ្នកត្រូវបានផ្ញើដោយជោគជ័យ!");
+            e.target.reset();
+        }
+
+        /* Search Modal Logic */
+        function toggleSearchModal() {
+            const modal = document.getElementById('searchModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function handleSearch(query) {
+            const container = document.getElementById('searchResults');
+            if(!query.trim()) {
+                container.innerHTML = '<p class="text-xs text-slate-400 text-center py-4">វាយបញ្ចូលឈ្មោះផលិតផលដើម្បីស្វែងរក...</p>';
+                return;
+            }
+
+            const matched = productsData.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
+            if(matched.length === 0) {
+                container.innerHTML = '<p class="text-xs text-slate-400 text-center py-4">រកមិនឃើញផលិតផលដែលសមស្រប</p>';
+                return;
+            }
+
+            container.innerHTML = matched.map(p => `
+                <div onclick="addToCart(${p.id}); toggleSearchModal();" class="flex items-center justify-between p-2 hover:bg-slate-50 rounded-lg cursor-pointer">
+                    <div class="flex items-center gap-3">
+                        <img src="${p.image}" class="w-10 h-10 object-cover rounded">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800">${p.name}</div>
+                            <div class="text-xs text-sky-600 font-bold">$${p.price.toFixed(2)}</div>
+                        </div>
+                    </div>
+                    <span class="text-xs text-sky-600 font-medium">បន្ថែម</span>
+                </div>
+            `).join('');
+        }
+
+        /* Mobile Menu Toggle */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        /* Toast Helper */
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Initialize App on Load
+        window.onload = function() {
+            renderProducts(productsData);
+            updateCartUI();
+        }
+    </script>
+</body>
+</html>
